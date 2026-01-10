@@ -1,0 +1,134 @@
+#define BLYNK_TEMPLATE_ID "TMPL3DQwd-hx4"
+#define BLYNK_TEMPLATE_NAME "Hand Control"
+#define BLYNK_AUTH_TOKEN "QJdZFDzNzvL6cDMObGItghrgz35v2hT1"
+
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+#include <ESP32Servo.h>
+
+char ssid[] = "Amitoj";
+char pass[] = "password";
+
+Servo servo[6];
+bool ambientMode = false;
+
+// Pin map: Thumb, Index, Middle, Ring, Pinky, Palm
+int servoPins[6] = {13, 12, 14, 27, 26, 25};
+int openAngles[6]  = {0, 180, 0, 180, 0, 180};
+int closeAngles[6] = {180, 0, 180, 0, 180, 100};
+
+// LED control pin
+#define LED_PIN 33
+
+void runAmbientMode() {
+  int closeOrder[] = {3, 4, 2, 1};  // Pinky to Index
+  for (int i = 0; i < 4 && ambientMode; i++) {
+    servo[closeOrder[i]].write(closeAngles[closeOrder[i]]);
+    delay(300);
+  }
+
+  if (ambientMode) {
+    servo[0].write(closeAngles[0]);  // Thumb
+    servo[5].write(closeAngles[5]);  // Palm
+    delay(300);
+  }
+
+  delay(500);
+
+  if (ambientMode) {
+    servo[0].write(openAngles[0]);  // Thumb
+    servo[5].write(openAngles[5]);  // Palm
+    delay(300);
+  }
+
+  for (int i = 3; i >= 0 && ambientMode; i--) {
+    servo[closeOrder[i]].write(openAngles[closeOrder[i]]);
+    delay(300);
+  }
+
+  delay(500);
+}
+
+void setup() {
+  Serial.begin(115200);
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+
+  for (int i = 0; i < 6; i++) {
+    servo[i].attach(servoPins[i]);
+    servo[i].write(openAngles[i]);
+  }
+
+  pinMode(LED_PIN, OUTPUT);   // LED pin as output
+  digitalWrite(LED_PIN, LOW); // LED OFF by default
+}
+
+// Individual finger control
+BLYNK_WRITE(V0) { servo[0].write(param.asInt()); }
+BLYNK_WRITE(V1) { servo[1].write(param.asInt()); }
+BLYNK_WRITE(V2) { servo[2].write(param.asInt()); }
+BLYNK_WRITE(V3) { servo[3].write(param.asInt()); }
+BLYNK_WRITE(V4) { servo[4].write(param.asInt()); }
+BLYNK_WRITE(V5) { servo[5].write(param.asInt()); }
+
+// Open all
+BLYNK_WRITE(V10) {
+  for (int i = 0; i < 6; i++) servo[i].write(openAngles[i]);
+}
+
+// Close all
+BLYNK_WRITE(V11) {
+  for (int i = 0; i < 6; i++) servo[i].write(closeAngles[i]);
+}
+
+// Gesture: Thumbs Up
+BLYNK_WRITE(V12) {
+  int gesture[] = {0, 0, 180, 0, 180, 180};
+  for (int i = 0; i < 6; i++) servo[i].write(gesture[i]);
+}
+
+// Gesture: 1
+BLYNK_WRITE(V13) {
+  int gesture[] = {180, 180, 180, 0, 180, 180};
+  for (int i = 0; i < 6; i++) servo[i].write(gesture[i]);
+}
+
+// Gesture: 2
+BLYNK_WRITE(V14) {
+  int gesture[] = {180, 180, 0, 0, 180, 180};
+  for (int i = 0; i < 6; i++) servo[i].write(gesture[i]);
+}
+
+// Gesture: 3
+BLYNK_WRITE(V15) {
+  int gesture[] = {180, 180, 0, 0, 0, 180};
+  for (int i = 0; i < 6; i++) servo[i].write(gesture[i]);
+}
+
+// Gesture: 4
+BLYNK_WRITE(V16) {
+  int gesture[] = {180, 180, 0, 0, 180, 180};
+  for (int i = 0; i < 6; i++) servo[i].write(gesture[i]);
+}
+
+// Gesture: Spiderman
+BLYNK_WRITE(V17) {
+  int gesture[] = {0, 180, 180, 180, 180, 180};
+  for (int i = 0; i < 6; i++) servo[i].write(gesture[i]);
+}
+
+// Ambient Mode ON/OFF
+BLYNK_WRITE(V18) {
+  ambientMode = param.asInt();
+}
+
+// LED ON/OFF control from Blynk
+BLYNK_WRITE(V20) {
+  int val = param.asInt();
+  digitalWrite(LED_PIN, val ? HIGH : LOW);
+}
+
+void loop() {
+  Blynk.run();
+  if (ambientMode) runAmbientMode();
+}
