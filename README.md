@@ -4,8 +4,6 @@
 
 > A low-cost, remotely controlled bionic hand that mimics human hand gestures using servo motors, nylon strings acting like tendons, and IoT control via the Blynk platform.
 
----
-
 ## 📖 Overview
 
 This project demonstrates a cost-effective, IoT-enabled bionic hand built with an ESP32 microcontroller. Each finger is actuated by a servo motor pulling a nylon tendon, and the hand is controlled in real-time via a smartphone through the Blynk IoT platform over WiFi.
