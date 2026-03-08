@@ -3,8 +3,6 @@
 
 > A low-cost, remotely controlled bionic hand that mimics human hand gestures using servo motors, nylon tendons, and IoT control via the Blynk platform.
 
-**Submitted by:** Amitoj Singh Karir (L029), Mannan Rana (L047), Krissh Khaneja (L030), Aadit Rangnekar (L048)
-
 ---
 
 ## 📖 Overview
