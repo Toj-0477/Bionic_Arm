@@ -1,4 +1,7 @@
 # Bionic Arm
+
+[![Watch Full Breakdown](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://youtu.be/ba7aIu2IH8I)
+
 # 🦾 IoT-Based Bionic Hand — ESP32 + Blynk
 
 > A low-cost, remotely controlled bionic hand that mimics human hand gestures using servo motors, nylon strings acting like tendons, and IoT control via the Blynk platform.
