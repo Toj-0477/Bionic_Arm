@@ -54,6 +54,7 @@ Each finger is driven by a dedicated servo motor:
 The Blynk app sends button/slider signals to the ESP32 over WiFi. The ESP32 decodes these into servo angle commands using virtual pins (V0–V18).
 
 https://github.com/user-attachments/assets/185a50e4-887b-43a7-8dc7-93c1dae2b899
+https://github.com/user-attachments/assets/7b57e88b-653c-406d-aad9-f3ddae6b4048
 
 ---
 
