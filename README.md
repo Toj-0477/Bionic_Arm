@@ -50,7 +50,8 @@ This project demonstrates a cost-effective, IoT-enabled bionic hand built with a
 
 Each finger is driven by a dedicated servo motor:
 1. **Curl** — Servo rotates, pulling the nylon tendon, curling the finger
-2. **Extend** — Servo releases, elastic string pulls finger back to open position
+2. **Fold** — Besides the 5 servos for each of the fingers, a 6th servo controls the thumbs lateral motion
+3. **Extend** — Servo releases, elastic string pulls finger back to open position
 
 The Blynk app sends button/slider signals to the ESP32 over WiFi. The ESP32 decodes these into servo angle commands using virtual pins (V0–V18).
 
