@@ -1,22 +1,13 @@
 # Bionic Arm
 # 🦾 IoT-Based Bionic Hand — ESP32 + Blynk
 
-> A low-cost, remotely controlled bionic hand that mimics human hand gestures using servo motors, nylon tendons, and IoT control via the Blynk platform.
+> A low-cost, remotely controlled bionic hand that mimics human hand gestures using servo motors, nylon strings acting like tendons, and IoT control via the Blynk platform.
 
 ---
 
 ## 📖 Overview
 
 This project demonstrates a cost-effective, IoT-enabled bionic hand built with an ESP32 microcontroller. Each finger is actuated by a servo motor pulling a nylon tendon, and the hand is controlled in real-time via a smartphone through the Blynk IoT platform over WiFi.
-
----
-
-## 🎯 Objectives
-
-- Perform basic hand gestures such as gripping and finger isolation
-- Enable remote control via an IoT interface (Blynk)
-- Use servo motors and ESP32 for precision and wireless capability
-- Keep the build low-cost and extensible for future enhancements
 
 ---
 
@@ -45,10 +36,7 @@ This project demonstrates a cost-effective, IoT-enabled bionic hand built with a
 
 ## ⚡ Circuit & Wiring
 
-- **Servo signal pins** → GPIO 13, 12, 14, 27, 26, 25 (PWM-enabled)
-- **Servo VCC** → External power bank (5V) — *not* from ESP32
-- **Common GND** shared between ESP32, servos, and power bank
-- ESP32 connected to PC via micro-USB for programming
+![Bionic Hand Demo](assets/Circuit_Diagram.png)
 
 ---
 
