@@ -53,8 +53,8 @@ Each finger is driven by a dedicated servo motor:
 
 The Blynk app sends button/slider signals to the ESP32 over WiFi. The ESP32 decodes these into servo angle commands using virtual pins (V0–V18).
 
-[![Watch the video](https://raw.githubusercontent.com/Toj-0477/Bionic_Arm/main/assets/Final_Display_Product.jpg)]
-(https://raw.githubusercontent.com/Toj-0477/Bionic_Arm/main/assets/Final_Display_Product.mp4)
+https://github.com/Toj-0477/Bionic_Arm/blob/93b1e32fec1114fd04e5e9ee505cdbedbe7ba75a/assets/Final_Display_Product.mp4
+
 ---
 
 ## 📱 Blynk Virtual Pin Map
