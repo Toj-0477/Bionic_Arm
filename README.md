@@ -1,5 +1,4 @@
 # Bionic Arm
----
 
 # 🦾 IoT-Based Bionic Hand — ESP32 + Blynk
 
