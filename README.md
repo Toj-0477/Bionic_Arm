@@ -40,7 +40,7 @@ This project demonstrates a cost-effective, IoT-enabled bionic hand built with a
 
 ## ⚡ Circuit & Wiring
 
-![Bionic Hand Demo](assets/Circuit_Diagram.png)
+![Bionic Hand Demo](assets/ESP32_Circuit_Diagram.png)
 
 ---
 
