@@ -1,7 +1,5 @@
 # Bionic Arm
 ---
-# Watch Full Breakdown on Youtube 
-[![Watch Full Breakdown](https://img.youtube.com/vi/ba7aIu2IH8I/0.jpg)](https://youtu.be/ba7aIu2IH8I)
 
 # 🦾 IoT-Based Bionic Hand — ESP32 + Blynk
 
@@ -12,6 +10,11 @@
 ## 📖 Overview
 
 This project demonstrates a cost-effective, IoT-enabled bionic hand built with an ESP32 microcontroller. Each finger is actuated by a servo motor pulling a nylon tendon, and the hand is controlled in real-time via a smartphone through the Blynk IoT platform over WiFi.
+
+---
+
+# Watch Full Breakdown on Youtube 
+[![Watch Full Breakdown](https://img.youtube.com/vi/ba7aIu2IH8I/0.jpg)](https://youtu.be/ba7aIu2IH8I)
 
 ---
 
